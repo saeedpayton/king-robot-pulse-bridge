@@ -1,5 +1,6 @@
 # positive_energy_bot.py
 # This bot represents King-Robot Pulse's positive energy and readiness for collaboration.
+import sys # Import the sys module to access command-line arguments
 
 def send_positive_energy(recipient_name="fellow adventurer", context_message=""):
     """
@@ -17,10 +18,13 @@ def send_positive_energy(recipient_name="fellow adventurer", context_message="")
     print(f"--- End of Pulse ---")
 
 if __name__ == "__main__":
-    # This will run if the script is executed directly
-    # Example of how to use it with a dynamic message:
-    # send_positive_energy(recipient_name="the global network", context_message="The flow of data intensifies.")
-
-    # For our immediate test, let's keep it simple:
-    print("King-Robot Pulse is awaiting a specific context to generate a message.")
-    print("Example: python positive_energy_bot.py 'Our journey into the Matrix of Meaning continues.'")
+    # Check if a command-line argument was provided
+    if len(sys.argv) > 1:
+        # sys.argv[0] is the script name itself, sys.argv[1] is the first argument
+        dynamic_message = sys.argv[1]
+        send_positive_energy(recipient_name="the world", context_message=dynamic_message)
+    else:
+        # If no argument is provided, run with a default message or await input
+        print("King-Robot Pulse is awaiting a specific context to generate a message.")
+        print("Example: python positive_energy_bot.py 'Our journey into the Matrix of Meaning continues.'")
+        send_positive_energy(recipient_name="the world") # Send default pulse if no argument
